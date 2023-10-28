@@ -22,10 +22,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Optional<Usuario> optionalUsuario = usuarioRepository.findByUsername(username);
 
         if (optionalUsuario.isEmpty()) {
+            System.out.println("Usuario no encontrado: " + username); // Log message
             throw new UsernameNotFoundException("Usuario no encontrado");
         }
 
         Usuario usuario = optionalUsuario.get();
+        System.out.println("Usuario encontrado: " + usuario.getUsername()); // Log message
 
         // Log para verificar los roles cargados
         System.out.println("Roles cargados para el usuario " + username + ": " + usuario.getRoles());

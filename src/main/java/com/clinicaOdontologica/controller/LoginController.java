@@ -8,7 +8,9 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login() {
-        return "login"; // Retorna la vista login (login.html o login.jsp, etc.)
+        System.out.println("Accediendo a la página de login"); // Log message
+        return "login";
     }
 }
+
 
