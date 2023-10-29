@@ -1,6 +1,6 @@
 -- Crear tabla ROL
 CREATE TABLE IF NOT EXISTS ROL (
-    ID INT PRIMARY KEY,
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     NOMBRE VARCHAR(255)
 );
 
@@ -15,6 +15,15 @@ CREATE TABLE IF NOT EXISTS USUARIO (
     PASSWORD VARCHAR(255),
     ROL_ID INT,
     FOREIGN KEY (ROL_ID) REFERENCES ROL(ID)
+);
+
+-- Crear tabla de relación entre USUARIO y ROL
+CREATE TABLE IF NOT EXISTS usuario_rol (
+    usuario_id INT,
+    rol_id INT,
+    PRIMARY KEY (usuario_id, rol_id),
+    FOREIGN KEY (usuario_id) REFERENCES USUARIO(ID),
+    FOREIGN KEY (rol_id) REFERENCES ROL(ID)
 );
 
 -- Crear tabla ODONTOLOGO
@@ -46,7 +55,8 @@ CREATE TABLE IF NOT EXISTS TURNO (
 );
 
 -- Insertar datos de ejemplo (puedes modificar estos datos según tus necesidades)
-INSERT INTO USUARIO (ID, USERNAME, PASSWORD, ROL_ID) VALUES (1, 'admin', 'adminpass', 1);
+INSERT INTO USUARIO (ID, USERNAME, PASSWORD) VALUES (1, 'admin', 'adminpass');
+INSERT INTO usuario_rol (usuario_id, rol_id) VALUES (1, 1);
 INSERT INTO ODONTOLOGO (ID, APELLIDO, NOMBRE, MATRICULA) VALUES (1, 'Gomez', 'Juan', 'OD1234');
 INSERT INTO PACIENTE (ID, NOMBRE, APELLIDO, DOMICILIO, DNI, FECHA_ALTA) VALUES (1, 'Perez', 'Ana', 'Calle 123', '12345678', '2023-01-01');
 INSERT INTO TURNO (ID, FECHA_HORA, PACIENTE_ID, ODONTOLOGO_ID) VALUES (1, '2023-01-02 09:00:00', 1, 1);
