@@ -17,8 +17,9 @@ public class TurnoController {
     private TurnoService turnoService;
 
     @PostMapping
-    public Turno asignarTurno(@RequestBody Turno turno) {
-        return turnoService.asignarTurno(turno);
+    public String asignarTurno(Turno turno, Model model) {
+        turnoService.asignarTurno(turno);
+        return "redirect:/turno"; //
     }
     @GetMapping("/add")
     public String agregarTurno(Model model) {
