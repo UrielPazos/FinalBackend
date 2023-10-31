@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Turnos</title>
 </head>
 <body>
 <h1>Lista de Turnos</h1>
 <table>
+    <thead>
     <tr>
+        <th>ID</th>
         <th>Paciente</th>
         <th>Odontólogo</th>
-        <th>Fecha</th>
-        <th>Hora</th>
+        <th>Fecha y Hora</th>
     </tr>
-    <!-- Aquí irán los turnos -->
+    </thead>
+    <tbody>
+
+    <tr th:each="turno : ${turnos}">
+        <td>
+
+            <a th:href="@{/turnos/{id}(id=${turno.id})}" th:text="${turno.id}"></a>
+        </td>
+        <td th:text="${turno.paciente.nombre}">Nombre del Paciente</td>
+        <td th:text="${turno.odontologo.nombre}">Nombre del Odontólogo</td>
+        <td th:text="${turno.fechaHora}">Fecha y Hora del Turno</td>
+    </tr>
+    </tbody>
 </table>
-<a href="/turnos/add">Agregar Turno</a>
 </body>
 </html>
+
+

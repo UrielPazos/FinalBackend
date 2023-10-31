@@ -3,25 +3,29 @@ package com.clinicaOdontologica.controller;
 import com.clinicaOdontologica.model.Paciente;
 import com.clinicaOdontologica.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/pacientes")
 public class PacienteController {
 
     @Autowired
     private PacienteService pacienteService;
 
-    @PostMapping
+    @PostMapping("/pacientes/add")
     public Paciente agregarPaciente(@RequestBody Paciente paciente) {
         return pacienteService.agregarPaciente(paciente);
     }
 
     @GetMapping
-    public List<Paciente> obtenerTodosPacientes() {
-        return pacienteService.obtenerTodosPacientes();
+    public String obtenerTodosPacientes(Model model) {
+        List<Paciente> pacientes = pacienteService.obtenerTodosPacientes();
+        model.addAttribute("pacientes", pacientes);
+        return "paciente.html";
     }
 
     @GetMapping("/{id}")

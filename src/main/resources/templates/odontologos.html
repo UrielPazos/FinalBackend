@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Odontólogos</title>
 </head>
@@ -11,8 +11,13 @@
         <th>Apellido</th>
         <th>Matrícula</th>
     </tr>
-    <!-- Aquí irán los odontólogos -->
+    <tr th:each="odontologo : ${odontologos}">
+        <td th:text="${odontologo.nombre}"></td>
+        <td th:text="${odontologo.apellido}"></td>
+        <td th:text="${odontologo.matricula}"></td>
+    </tr>
 </table>
 <a href="/odontologos/add">Agregar Odontólogo</a>
 </body>
 </html>
+

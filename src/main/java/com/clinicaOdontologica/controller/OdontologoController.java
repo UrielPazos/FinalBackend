@@ -3,26 +3,39 @@ package com.clinicaOdontologica.controller;
 import com.clinicaOdontologica.model.Odontologo;
 import com.clinicaOdontologica.service.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/odontologos")
 public class OdontologoController {
 
     @Autowired
     private OdontologoService odontologoService;
 
-    @PostMapping
-    public Odontologo agregarOdontologo(@RequestBody Odontologo odontologo) {
-        return odontologoService.agregarOdontologo(odontologo);
+    @GetMapping("/add")
+    public String mostrarFormularioAgregarOdontologo(Model model) {
+        model.addAttribute("odontologo", new Odontologo());
+        return "agregarodontologo.html";
     }
 
-    @GetMapping
-    public List<Odontologo> obtenerTodosOdontologos() {
-        return odontologoService.obtenerTodosOdontologos();
+    @PostMapping("/add")
+    public String agregarOdontologo(@ModelAttribute Odontologo odontologo, Model model) {
+        odontologoService.agregarOdontologo(odontologo);
+        return "redirect:/odontologos"; // Redirige a la lista de odontólogos después de agregar uno nuevo
     }
+
+
+    @GetMapping
+    public String obtenerTodosOdontologos(Model model) {
+        List<Odontologo> odontologos = odontologoService.obtenerTodosOdontologos();
+        model.addAttribute("odontologos", odontologos);
+        return "odontologos.html";
+    }
+
 
     @GetMapping("/{id}")
     public Odontologo obtenerOdontologoPorId(@PathVariable Long id) {

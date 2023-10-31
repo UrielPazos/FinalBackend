@@ -3,11 +3,12 @@ package com.clinicaOdontologica.controller;
 import com.clinicaOdontologica.model.Usuario;
 import com.clinicaOdontologica.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/usuarios")
 public class UsuarioController {
 

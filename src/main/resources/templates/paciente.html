@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Pacientes</title>
 </head>
@@ -13,8 +13,15 @@
         <th>Domicilio</th>
         <th>Fecha de Alta</th>
     </tr>
-    <!-- Aquí irán los pacientes -->
+    <tr th:each="paciente : ${pacientes}">
+        <td th:text="${paciente.nombre}"></td>
+        <td th:text="${paciente.apellido}"></td>
+        <td th:text="${paciente.dni}"></td>
+        <td th:text="${paciente.domicilio}"></td>
+        <td th:text="${paciente.fechaAlta}"></td>
+    </tr>
 </table>
 <a href="/pacientes/add">Agregar Paciente</a>
 </body>
 </html>
+

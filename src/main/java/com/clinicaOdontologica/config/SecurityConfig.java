@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login") // Página de login personalizada
-                .defaultSuccessUrl("/home", true) // Página a la que se redirige después de un login exitoso
+                .defaultSuccessUrl("/turnos", true) // Página a la que se redirige después de un login exitoso
                 .permitAll()
                 .and()
                 .logout()

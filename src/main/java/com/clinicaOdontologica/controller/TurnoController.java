@@ -3,11 +3,13 @@ package com.clinicaOdontologica.controller;
 import com.clinicaOdontologica.model.Turno;
 import com.clinicaOdontologica.service.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/turnos")
 public class TurnoController {
 
@@ -20,8 +22,10 @@ public class TurnoController {
     }
 
     @GetMapping
-    public List<Turno> obtenerTodosTurnos() {
-        return turnoService.obtenerTodosTurnos();
+    public String obtenerTodosTurnos(Model model) {  //
+        List<Turno> turnos = turnoService.obtenerTodosTurnos();
+        model.addAttribute("turnos", turnos);
+        return "turno";
     }
 
     @GetMapping("/{id}")

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Odontólogo</title>
+</head>
+<body>
+<h1>Agregar Odontólogo</h1>
+<form th:object="${odontologo}" th:action="@{/odontologos/add}" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" th:field="*{nombre}" id="nombre" required>
+    <br>
+    <label for="apellido">Apellido:</label>
+    <input type="text" th:field="*{apellido}" id="apellido" required>
+    <br>
+    <label for="matricula">Matrícula:</label>
+    <input type="text" th:field="*{matricula}" id="matricula" required>
+    <br>
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>
