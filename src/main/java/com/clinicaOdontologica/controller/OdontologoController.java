@@ -19,14 +19,15 @@ public class OdontologoController {
     @GetMapping("/add")
     public String mostrarFormularioAgregarOdontologo(Model model) {
         model.addAttribute("odontologo", new Odontologo());
-        return "agregarodontologo.html";
+        return "agregarOdontologos";
     }
 
     @PostMapping("/add")
     public String agregarOdontologo(@ModelAttribute Odontologo odontologo, Model model) {
         odontologoService.agregarOdontologo(odontologo);
-        return "redirect:/odontologos"; // Redirige a la lista de odontólogos después de agregar uno nuevo
+        return "redirect:/odontologos";
     }
+
 
 
     @GetMapping

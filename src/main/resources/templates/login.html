@@ -3,25 +3,26 @@
 <head>
     <title>Login</title>
 </head>
-<body>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
 
-<div th:if="${param.error}">
+<div th:if="${param.error}" style="color: red;">
     <p>Invalid username or password.</p>
 </div>
 
-<form th:action="@{/login}" method="post">
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" autofocus="autofocus" />
+<form th:action="@{/login}" method="post" style="max-width: 300px; margin: auto;">
+    <div style="margin-bottom: 15px;">
+        <label for="username" style="display: block; margin-bottom: 5px;">Username</label>
+        <input type="text" id="username" name="username" autofocus="autofocus" style="width: 100%; padding: 8px;" />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="password" style="display: block; margin-bottom: 5px;">Password</label>
+        <input type="password" id="password" name="password" style="width: 100%; padding: 8px;" />
     </div>
     <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" />
-    </div>
-    <div>
-        <button type="submit">Login</button>
+        <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Login</button>
     </div>
 </form>
 
 </body>
 </html>
+

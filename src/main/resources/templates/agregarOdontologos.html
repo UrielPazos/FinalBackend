@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Odontólogo</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+
+<h1 style="margin-bottom: 30px;">Agregar Odontólogo</h1>
+
+<form th:object="${odontologo}" th:action="@{/odontologos/add}" method="post" style="max-width: 300px; margin: auto;">
+    <div style="margin-bottom: 15px;">
+        <label for="nombre" style="display: block; margin-bottom: 5px;">Nombre:</label>
+        <input type="text" th:field="*{nombre}" id="nombre" required style="width: 100%; padding: 8px;" />
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label for="apellido" style="display: block; margin-bottom: 5px;">Apellido:</label>
+        <input type="text" th:field="*{apellido}" id="apellido" required style="width: 100%; padding: 8px;" />
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="matricula" style="display: block; margin-bottom: 5px;">Matrícula:</label>
+        <input type="text" th:field="*{matricula}" id="matricula" required style="width: 100%; padding: 8px;" />
+    </div>
+    <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Guardar</button>
+</form>
+
+</body>
+</html>

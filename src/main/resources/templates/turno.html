@@ -3,31 +3,33 @@
 <head>
     <title>Turnos</title>
 </head>
-<body>
-<h1>Lista de Turnos</h1>
-<table>
+<body style="font-family: Arial, sans-serif; padding: 50px;">
+
+<h1 style="margin-bottom: 30px;">Lista de Turnos</h1>
+
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
     <thead>
-    <tr>
-        <th>ID</th>
-        <th>Paciente</th>
-        <th>Odontólogo</th>
-        <th>Fecha y Hora</th>
+    <tr style="background-color: #f2f2f2;">
+        <th style="padding: 8px; border: 1px solid #dddddd;">ID</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">Paciente</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">Odontólogo</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">Fecha y Hora</th>
     </tr>
     </thead>
     <tbody>
 
-    <tr th:each="turno : ${turnos}">
-        <td>
-
-            <a th:href="@{/turnos/{id}(id=${turno.id})}" th:text="${turno.id}"></a>
-        </td>
-        <td th:text="${turno.paciente.nombre}">Nombre del Paciente</td>
-        <td th:text="${turno.odontologo.nombre}">Nombre del Odontólogo</td>
-        <td th:text="${turno.fechaHora}">Fecha y Hora del Turno</td>
+    <tr th:each="turno : ${turnos}" style="text-align: left;">
+        <td style="padding: 8px; border: 1px solid #dddddd;" th:text="${turno.id}"></td>
+        <td th:text="${turno.paciente.nombre}" style="padding: 8px; border: 1px solid #dddddd;">Nombre del Paciente</td>
+        <td th:text="${turno.odontologo.nombre}" style="padding: 8px; border: 1px solid #dddddd;">Nombre del Odontólogo</td>
+        <td th:text="${turno.fechaHora}" style="padding: 8px; border: 1px solid #dddddd;">Fecha y Hora del Turno</td>
     </tr>
     </tbody>
 </table>
+
 </body>
 </html>
+
+
 
 

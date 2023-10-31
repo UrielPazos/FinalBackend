@@ -3,25 +3,30 @@
 <head>
     <title>Pacientes</title>
 </head>
-<body>
-<h1>Lista de Pacientes</h1>
-<table>
-    <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>DNI</th>
-        <th>Domicilio</th>
-        <th>Fecha de Alta</th>
+<body style="font-family: Arial, sans-serif; padding: 50px;">
+
+<h1 style="margin-bottom: 30px;">Lista de Pacientes</h1>
+
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+    <tr style="background-color: #f2f2f2;">
+        <th style="padding: 8px; border: 1px solid #dddddd;">Nombre</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">Apellido</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">DNI</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">Domicilio</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">Fecha de Alta</th>
     </tr>
-    <tr th:each="paciente : ${pacientes}">
-        <td th:text="${paciente.nombre}"></td>
-        <td th:text="${paciente.apellido}"></td>
-        <td th:text="${paciente.dni}"></td>
-        <td th:text="${paciente.domicilio}"></td>
-        <td th:text="${paciente.fechaAlta}"></td>
+    <tr th:each="paciente : ${pacientes}" style="text-align: left;">
+        <td th:text="${paciente.nombre}" style="padding: 8px; border: 1px solid #dddddd;"></td>
+        <td th:text="${paciente.apellido}" style="padding: 8px; border: 1px solid #dddddd;"></td>
+        <td th:text="${paciente.dni}" style="padding: 8px; border: 1px solid #dddddd;"></td>
+        <td th:text="${paciente.domicilio}" style="padding: 8px; border: 1px solid #dddddd;"></td>
+        <td th:text="${paciente.fechaAlta}" style="padding: 8px; border: 1px solid #dddddd;"></td>
     </tr>
 </table>
-<a href="/pacientes/add">Agregar Paciente</a>
+
+<a href="/pacientes/add" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none;">Agregar Paciente</a>
+
 </body>
 </html>
+
 

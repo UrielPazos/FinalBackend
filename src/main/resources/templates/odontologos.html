@@ -3,21 +3,26 @@
 <head>
     <title>Odontólogos</title>
 </head>
-<body>
-<h1>Lista de Odontólogos</h1>
-<table>
-    <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Matrícula</th>
+<body style="font-family: Arial, sans-serif; padding: 50px;">
+
+<h1 style="margin-bottom: 30px;">Lista de Odontólogos</h1>
+
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+    <tr style="background-color: #f2f2f2;">
+        <th style="padding: 8px; border: 1px solid #dddddd;">Nombre</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">Apellido</th>
+        <th style="padding: 8px; border: 1px solid #dddddd;">Matrícula</th>
     </tr>
-    <tr th:each="odontologo : ${odontologos}">
-        <td th:text="${odontologo.nombre}"></td>
-        <td th:text="${odontologo.apellido}"></td>
-        <td th:text="${odontologo.matricula}"></td>
+    <tr th:each="odontologo : ${odontologos}" style="text-align: left;">
+        <td th:text="${odontologo.nombre}" style="padding: 8px; border: 1px solid #dddddd;"></td>
+        <td th:text="${odontologo.apellido}" style="padding: 8px; border: 1px solid #dddddd;"></td>
+        <td th:text="${odontologo.matricula}" style="padding: 8px; border: 1px solid #dddddd;"></td>
     </tr>
 </table>
-<a href="/odontologos/add">Agregar Odontólogo</a>
+
+<a href="/odontologos/add" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none;">Agregar Odontólogo</a>
+
 </body>
 </html>
+
 
