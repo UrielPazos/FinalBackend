@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Paciente</title>
+</head>
+<body>
+
+<h1>Agregar Paciente</h1>
+
+<form action="#" th:action="@{/pacientes/add}" th:object="${paciente}" method="post">
+    <!-- Campos para ingresar detalles del paciente -->
+    <p>ID: <input type="text" th:field="*{id}"/></p>
+    <p>Nombre: <input type="text" th:field="*{nombre}"/></p>
+    <p>Apellido: <input type="text" th:field="*{apellido}"/></p>
+    <p>DNI: <input type="text" th:field="*{dni}"/></p>
+
+    <p><input type="submit" value="Submit"/></p>
+</form>
+
+</body>
+</html>

@@ -16,10 +16,18 @@ public class PacienteController {
     @Autowired
     private PacienteService pacienteService;
 
-    @PostMapping("/pacientes/add")
-    public Paciente agregarPaciente(@RequestBody Paciente paciente) {
-        return pacienteService.agregarPaciente(paciente);
+    @GetMapping("/add")
+    public String agregarPaciente (Model model) {
+        model.addAttribute("paciente", new Paciente());
+        return "agregarPacientes";
     }
+    @PostMapping("/add")
+    public String guardarPaciente(@ModelAttribute Paciente paciente) {
+        pacienteService.agregarPaciente(paciente);
+        return "redirect:/pacientes"; // o redirige a donde prefieras
+    }
+
+
 
     @GetMapping
     public String obtenerTodosPacientes(Model model) {

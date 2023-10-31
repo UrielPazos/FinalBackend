@@ -20,6 +20,11 @@ public class TurnoController {
     public Turno asignarTurno(@RequestBody Turno turno) {
         return turnoService.asignarTurno(turno);
     }
+    @GetMapping("/add")
+    public String agregarTurno(Model model) {
+        model.addAttribute("turno", new Turno());
+        return "agregarTurno";
+    }
 
     @GetMapping
     public String obtenerTodosTurnos(Model model) {  //

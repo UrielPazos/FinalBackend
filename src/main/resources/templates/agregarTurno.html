@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Turno</title>
+</head>
+<body>
+
+<h1>Agregar Turno</h1>
+
+<form action="#" th:action="@{/turnos}" th:object="${turno}" method="post">
+    <!-- Campos para ingresar detalles del turno -->
+    <input type="hidden" th:field="*{id}" />
+    <p>Paciente: <input type="text" th:field="*{paciente.nombre}"/></p>
+    <p>Odontólogo: <input type="text" th:field="*{odontologo.nombre}"/></p>
+    <p>Fecha y Hora: <input type="datetime-local" th:field="*{fechaHora}"/></p>
+
+    <p><input type="submit" value="Submit"/></p>
+</form>
+
+</body>
+</html>
